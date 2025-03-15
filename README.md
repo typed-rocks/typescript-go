@@ -17,7 +17,7 @@ These tests are just there to handle edge cases like huge unions or deeply neste
 
 ## How are they run?
 
-### Hardware
+### Hardware
 
 Macbook Pro M2, 16GB RAM, 10 Cores
 
@@ -28,7 +28,7 @@ I run `tsc` with the `--diagnostics` flag to also gather information about the m
 ## Results
 
 | Test                          | Current | Native | Less Memory | Speedup | Dir Path         |
-| ----------------------------- | ------- | ------ | ----------- | ------- | ---------------- |
+|-------------------------------|---------|--------|-------------|---------|------------------|
 | 100k Union                    | 0.43    | 0.14   | 82000K      | 3x      | 100k             |
 | 100k Union 1 Thread           | 0.43    | 0.22   | 81200K      | 1.95x   | 100k             |
 | 1 Million Union Type          | 1.57    | 7.29   | 494000K     | 0.215x  | million          |

@@ -12,3 +12,16 @@
 | 4x 1 Million Union 1 Thread   | 5.43    | 28.46  | 1717000K    | 0.19x   | million_multiple |
 | Recursive Type                | 5.64    | 2.73   | 165000K     | 2.06x   | union            |
 | Recursive Type 1 Thread       | 5.64    | 2.87   | 153000K     | 1.96x   | union            |
+
+## Dell XPS 15 9575 i7-8705G, 16GB RAM, 4 Cores, Arch Linux 6.13.7-arch1-1
+
+| Test                             | Current | Native  | Less Memory | Speedup | Dir Path      |
+| -------------------------------- | ------- | ------- | ----------- | ------- | ------------- |
+| 100k union                       | 1.61s   | 0.272s  | 82337K      | 5.92x   | 100k          |
+| 100k union 1 Thread              | 1.61s   | 0.474s  | 81483K      | 3.4x    | 100k          |
+| Recursive Type                   | 7.64s   | 4.354s  | 212797K     | 1.75x   | union         |
+| Recursive Type 1 Thread          | 7.64s   | 5.001s  | 213672K     | 1.53x   | union         |
+| 1 Million Union Type             | 4.46s   | 12.372s | 497078K     | 0.36x   | million       |
+| 1 Million Union Type 1 Thread    | 4.46s   | 13.784s | 498274K     | 0.32x   | million       |
+| 4x 1 Million Union Type          | 10.15s  | 18.309s | 923567K     | 0.55x   | million_multi |
+| 4x 1 Million Union Type 1 Thread | 10.15s  | 44.046s | 1696720K    | 0.23x   | million_multi |

@@ -8,7 +8,11 @@ type ForI<
 
 type Looped = {
   [Key in  ForI<999, "a"> as Key extends string ? Key : never]?: {
-    [Key2 in  ForI<999, "b"> as Key2 extends string ? Key2 : never]?: ForI<999, Key2>;
+    [Key2 in  ForI<999, "b"> as Key2 extends string ? Key2 : never]?: {
+      [Key3 in  ForI<999, "c"> as Key3 extends string ? Key3 : never]?: {
+        [Key4 in  ForI<999, "d"> as Key4 extends string ? Key4 : never]?: ForI<999, Key4>;
+      }[ForI<999, "d">]
+    }[ ForI<999, "c">];
   }[ForI<999, "b">]
 }[ ForI<999, "a">];
 

@@ -1,8 +1,10 @@
 const { execSync } = require("child_process");
 
+const tsgoPath = process.argv[2];
+
 function runTsgo(path, singleThread = false) {
   const singleThreaded = singleThread ? " --singleThreaded" : "";
-  return execSync(`(cd ${path} && /Users/wrz/IdeaProjects/typescript-go/built/local/tsgo${singleThreaded})`).toString();
+  return execSync(`(cd ${path} && ${tsgoPath} ${singleThreaded})`).toString();
 }
 
 function runTsc(path) {
@@ -22,7 +24,6 @@ function extractResults(result) {
     const trimmed = line.replace(/\s+/g, '');
     if (trimmed.startsWith("Memoryused:")) {
       memoryUsed = trimmed.split(":")[1];
-      console.log(memoryUsed);
     } else if (trimmed.startsWith("Totaltime:")) {
       totalTime = trimmed.split(":")[1];
     }
@@ -38,11 +39,14 @@ const result = [
 ]
   .map(({ name, path }) => {
     const tsGo = extractResults(runTsgo(path));
-    console.log(`done ${name} with tsgo`);
+    console.log(`start running ${name} with tsgo`);
+    console.log(`done  running ${name} with tsgo`);
     const tsGoSingle = extractResults(runTsgo(path, true));
-    console.log(`done ${name} single threaded with tsgo`);
+    console.log(`start running ${name} single threaded with tsgo`);
+    console.log(`done  running ${name} single threaded with tsgo`);
     const tsc = extractResults(runTsc(path));
-    console.log(`done ${name} with tsc`);
+    console.log(`start running ${name} with tsc`);
+    console.log(`done  running ${name} with tsc`);
     return [
       { name, path, current: tsc, native: tsGo },
       { name: name + " 1 Thread", path, current: tsc, native: tsGoSingle },

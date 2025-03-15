@@ -27,24 +27,23 @@ I run `tsc` with the `--diagnostics` flag to also gather information about the m
 
 ## Results
 
-| Test                          | Current | Native | Less Memory | Speedup | Dir Path         |
-|-------------------------------|---------|--------|-------------|---------|------------------|
-| 100k Union                    | 0.43    | 0.14   | 82000K      | 3x      | 100k             |
-| 100k Union 1 Thread           | 0.43    | 0.22   | 81200K      | 1.95x   | 100k             |
-| 1 Million Union Type          | 1.57    | 7.29   | 494000K     | 0.215x  | million          |
-| 1 Million Union Type 1 Thread | 1.57    | 7.32   | 495000K     | 0.214x  | million          |
-| 4x 1 Million Union            | 5.43    | 8.35   | 943000K     | 0.65x   | million_multiple |
-| 4x 1 Million Union 1 Thread   | 5.43    | 28.46  | 1717000K    | 0.19x   | million_multiple |
-| Recursive Type                | 5.64    | 2.73   | 165000K     | 2.06x   | union            |
-| Recursive Type 1 Thread       | 5.64    | 2.87   | 153000K     | 1.96x   | union            |
+| Test                             | Current | Native  | Less Memory | Speedup | Dir Path      |
+| -------------------------------- | ------- | ------- | ----------- | ------- | ------------- |
+| 100k union                       | 0.43s   | 0.143s  | 80913K      | 3.01x   | 100k          |
+| 100k union 1 Thread              | 0.43s   | 0.202s  | 79982K      | 2.13x   | 100k          |
+| 1 Million Union Type             | 1.66s   | 7.463s  | 506423K     | 0.22x   | million       |
+| 1 Million Union Type 1 Thread    | 1.66s   | 7.531s  | 507583K     | 0.22x   | million       |
+| 4x 1 Million Union Type          | 5.59s   | 7.943s  | 951708K     | 0.7x    | million_multi |
+| 4x 1 Million Union Type 1 Thread | 5.59s   | 29.534s | 1725211K    | 0.19x   | million_multi |
+| Recursive Type                   | 5.25s   | 2.951s  | 360428K     | 1.78x   | union         |
+| Recursive Type 1 Thread          | 5.25s   | 3.109s  | 347255K     | 1.69x   | union         |
 
 ## Test Descriptions
 
 ## Run tests yourself
 
 1. Install typescript-go: https://github.com/microsoft/typescript-go?tab=readme-ov-file#how-to-build-and-run
-2. alias tsgo to the path of the /built/local/tsgo binary
-3. Run the tests:
+2. Run the tests:
    ```bash
-   (cd DIR_PATH && tsgo && tsgo --singleThreaded && tsc --diagnostics);
+   node runtests.js /path/to/the/tsgo/binary;
    ```

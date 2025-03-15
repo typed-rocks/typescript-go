@@ -33,9 +33,9 @@ function extractResults(result) {
 
 const result = [
   { name: "100k union", path: "100k" },
+  { name: "Recursive Type", path: "union" },
   { name: "1 Million Union Type", path: "million" },
   { name: "4x 1 Million Union Type", path: "million_multi" },
-  { name: "Recursive Type", path: "union" },
 ]
   .map(({ name, path }) => {
     const tsGo = extractResults(runTsgo(path));

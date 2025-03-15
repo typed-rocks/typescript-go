@@ -1,3 +1,4 @@
+
 type ForI<
   Max,
   Prefix extends string,
@@ -16,6 +17,4 @@ type Looped = {
   }[ForI<999, "b">]
 }[ ForI<999, "a">];
 
-const l: Looped = {
-  a1: "a1105",
-};
+const l: Looped =  "a1105";

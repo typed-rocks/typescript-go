@@ -45,30 +45,52 @@
 **Results**
 
 <pre>
+start running 100k union with tsgo
+done  running 100k union with tsgo
+start running 100k union single threaded with tsgo
+done  running 100k union single threaded with tsgo
+start running 100k union with tsc
+done  running 100k union with tsc
+start running Recursive Type with tsgo
+done  running Recursive Type with tsgo
+start running Recursive Type single threaded with tsgo
+done  running Recursive Type single threaded with tsgo
+start running Recursive Type with tsc
+done  running Recursive Type with tsc
+start running 1 Million Union Type with tsgo
+done  running 1 Million Union Type with tsgo
+start running 1 Million Union Type single threaded with tsgo
+done  running 1 Million Union Type single threaded with tsgo
+start running 1 Million Union Type with tsc
+done  running 1 Million Union Type with tsc
+start running 4x 1 Million Union Type with tsgo
+done  running 4x 1 Million Union Type with tsgo
+start running 4x 1 Million Union Type single threaded with tsgo
+done  running 4x 1 Million Union Type single threaded with tsgo
+
 <--- Last few GCs --->
-[11928:000002161A19C000]    29333 ms: Mark-Compact 2053.2 (2056.4) -> 2046.6 (2049.8) MB, pooled: 0 MB, 1224.27 / 0.00 ms  (average mu = 0.193, current mu = 0.049) allocation failure; scavenge might not succeed
-[11928:000002161A19C000]    30587 ms: Mark-Compact 2048.6 (2049.8) -> 2048.6 (2057.8) MB, pooled: 0 MB, 1180.90 / 0.00 ms  (average mu = 0.128, current mu = 0.058) allocation failure; scavenge might not succeed
+
+[5320:000002098AD45000]    14739 ms: Scavenge (interleaved) 2036.6 (2041.9) -> 2036.6 (2052.9) MB, pooled: 0 MB, 10.69 / 0.00 ms  (average mu = 0.484, current mu = 0.398) allocation failure; 
+[5320:000002098AD45000]    15266 ms: Mark-Compact (reduce) 2053.5 (2062.9) -> 2046.9 (2049.3) MB, pooled: 0 MB, 335.17 / 0.00 ms  (+ 0.5 ms in 0 steps since start of marking, biggest step 0.0 ms, walltime since start of marking 443 ms) (average mu = 0.479
 
 <--- JS stacktrace --->
-FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+
+FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
 ----- Native stack trace -----
- 1: 00007FF7AA7A690D node::SetCppgcReference+16781
- 2: 00007FF7AA70A218 v8::base::CPU::num_virtual_address_bits+98760
- 3: 00007FF7AB407B51 v8::Isolate::ReportExternalAllocationLimitReached+65
- 4: 00007FF7AB3F4406 v8::Function::Experimental_IsNopFunction+2694
- 5: 00007FF7AB230020 v8::internal::StrongRootAllocatorBase::StrongRootAllocatorBase+33824
- 6: 00007FF7AB2293A4 v8::internal::StrongRootAllocatorBase::StrongRootAllocatorBase+6052
- 7: 00007FF7AB2250BD v8::Platform::SystemClockTimeMillis+648333
- 8: 00007FF7AAA471FD BIO_ssl_shutdown+189
- 9: 00007FF7AB22CC16 v8::internal::StrongRootAllocatorBase::StrongRootAllocatorBase+20502
-10: 00007FF7AB242738 v8::Isolate::GetHeapProfiler+8488
-11: 00007FF7AB242862 v8::Isolate::GetHeapProfiler+8786
-12: 00007FF7AB2536E7 v8::Isolate::GetHeapProfiler+78039
-13: 00007FF7AAF06F7B v8::base::AddressSpaceReservation::AddressSpaceReservation+330075
-14: 00007FF7AB4C620E v8::PropertyDescriptor::writable+738142
-15: 00007FF72B7BCAE7 
-start running 4x 1 Million Union Type with tsc  
-done running 4x 1 Million Union Type with tsc
+
+ 1: 00007FF6EC8D690D node::SetCppgcReference+16781
+ 2: 00007FF6EC83A218 v8::base::CPU::num_virtual_address_bits+98760
+ 3: 00007FF6ED537B51 v8::Isolate::ReportExternalAllocationLimitReached+65
+ 4: 00007FF6ED524406 v8::Function::Experimental_IsNopFunction+2694
+ 5: 00007FF6ED360020 v8::internal::StrongRootAllocatorBase::StrongRootAllocatorBase+33824
+ 6: 00007FF6ED35CDF0 v8::internal::StrongRootAllocatorBase::StrongRootAllocatorBase+20976
+ 7: 00007FF6ED372738 v8::Isolate::GetHeapProfiler+8488
+ 8: 00007FF6ED372862 v8::Isolate::GetHeapProfiler+8786
+ 9: 00007FF6ED3836E7 v8::Isolate::GetHeapProfiler+78039
+10: 00007FF6ED036F7B v8::base::AddressSpaceReservation::AddressSpaceReservation+330075
+11: 00007FF68D5B027A 
+start running 4x 1 Million Union Type with tsc
+done  running 4x 1 Million Union Type with tsc
 </pre>
 
 

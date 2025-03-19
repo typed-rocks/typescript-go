@@ -38,3 +38,48 @@
 | 1 Million Union Type 1 Thread    | 4.46s   | 13.784s | 498274K     | 0.32x   | million       |
 | 4x 1 Million Union Type          | 10.15s  | 18.309s | 923567K     | 0.55x   | million_multi |
 | 4x 1 Million Union Type 1 Thread | 10.15s  | 44.046s | 1696720K    | 0.23x   | million_multi |
+
+## HP 15s i3 11th Gen (8GB RAM, 2 Cores, Windows 11)
+
+
+**Results**
+
+<pre>
+<--- Last few GCs --->
+[11928:000002161A19C000]    29333 ms: Mark-Compact 2053.2 (2056.4) -> 2046.6 (2049.8) MB, pooled: 0 MB, 1224.27 / 0.00 ms  (average mu = 0.193, current mu = 0.049) allocation failure; scavenge might not succeed
+[11928:000002161A19C000]    30587 ms: Mark-Compact 2048.6 (2049.8) -> 2048.6 (2057.8) MB, pooled: 0 MB, 1180.90 / 0.00 ms  (average mu = 0.128, current mu = 0.058) allocation failure; scavenge might not succeed
+
+<--- JS stacktrace --->
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+ 1: 00007FF7AA7A690D node::SetCppgcReference+16781
+ 2: 00007FF7AA70A218 v8::base::CPU::num_virtual_address_bits+98760
+ 3: 00007FF7AB407B51 v8::Isolate::ReportExternalAllocationLimitReached+65
+ 4: 00007FF7AB3F4406 v8::Function::Experimental_IsNopFunction+2694
+ 5: 00007FF7AB230020 v8::internal::StrongRootAllocatorBase::StrongRootAllocatorBase+33824
+ 6: 00007FF7AB2293A4 v8::internal::StrongRootAllocatorBase::StrongRootAllocatorBase+6052
+ 7: 00007FF7AB2250BD v8::Platform::SystemClockTimeMillis+648333
+ 8: 00007FF7AAA471FD BIO_ssl_shutdown+189
+ 9: 00007FF7AB22CC16 v8::internal::StrongRootAllocatorBase::StrongRootAllocatorBase+20502
+10: 00007FF7AB242738 v8::Isolate::GetHeapProfiler+8488
+11: 00007FF7AB242862 v8::Isolate::GetHeapProfiler+8786
+12: 00007FF7AB2536E7 v8::Isolate::GetHeapProfiler+78039
+13: 00007FF7AAF06F7B v8::base::AddressSpaceReservation::AddressSpaceReservation+330075
+14: 00007FF7AB4C620E v8::PropertyDescriptor::writable+738142
+15: 00007FF72B7BCAE7 
+start running 4x 1 Million Union Type with tsc  
+done running 4x 1 Million Union Type with tsc
+</pre>
+
+
+
+| Test                             | Current | Native   | Less Memory | Speedup | Dir Path      |
+| -------------------------------- | ------- | -------- | ----------- | ------- | ------------- |
+| 100k union                       | 3.29s   | 0.908s   | 93795K      | 3.62x   | 100k          |
+| 100k union 1 Thread              | 3.29s   | 1.929s   | 92936K      | 1.71x   | 100k          |
+| Recursive Type                   | 12.47s  | 12.183s  | 208556K     | 1.02x   | union         |
+| Recursive Type 1 Thread          | 12.47s  | 9.917s   | 208699K     | 1.26x   | union         |
+| 1 Million Union Type             | 8.44s   | 21.677s  | 515319K     | 0.39x   | million       |
+| 1 Million Union Type 1 Thread    | 8.44s   | 22.792s  | 516588K     | 0.37x   | million       |
+| 4x 1 Million Union Type          |         | 69.088s  | -2030362K   | 0x      | million_multi |
+| 4x 1 Million Union Type 1 Thread |         | 72.296s  | -1256826K   | 0x      | million_multi |

@@ -51,3 +51,16 @@
 | 1 Million Union Type 1 Thread       | 1.69s   | 4.838s   | 499310K       | 0.35x   | million              |
 | 4x 1 Million Union Type             | 5.47s   | 5.399s   | 435844K       | 1.01x   | million_multi        |
 | 4x 1 Million Union Type 1 Thread    | 5.47s   | 18.434s  | 1209167K      | 0.3x    | million_multi        |
+
+## Linux 6.13.7-arch1-1 Desktop, 64GB RAM, i7 14th Gen 20 cores (8 performance and 12 efficiency)
+
+| Test                                | Current | Native   | Less Memory   | Speedup | Dir Path             |
+| ----------------------------------- | ------- | -------- | ------------- | ------- | -------------------- |
+| 100k union                          | 0.47s   | 0.143s   | 78422K        | 3.29x   | 100k                 |
+| 100k union 1 Thread                 | 0.47s   | 0.191s   | 77578K        | 2.46x   | 100k                 |
+| Recursive Type                      | 2.02s   | 1.409s   | 283382K       | 1.43x   | union                |
+| Recursive Type 1 Thread             | 2.02s   | 1.495s   | 284163K       | 1.35x   | union                |
+| 1 Million Union Type                | 1.46s   | 4.577s   | 503622K       | 0.32x   | million              |
+| 1 Million Union Type 1 Thread       | 1.46s   | 4.586s   | 504982K       | 0.32x   | million              |
+| 4x 1 Million Union Type             | 4.65s   | 5.352s   | 438456K       | 0.87x   | million_multi        |
+| 4x 1 Million Union Type 1 Thread    | 4.65s   | 17.846s  | 1211475K      | 0.26x   | million_multi        |

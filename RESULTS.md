@@ -38,3 +38,16 @@
 | 1 Million Union Type 1 Thread    | 4.46s   | 13.784s | 498274K     | 0.32x   | million       |
 | 4x 1 Million Union Type          | 10.15s  | 18.309s | 923567K     | 0.55x   | million_multi |
 | 4x 1 Million Union Type 1 Thread | 10.15s  | 44.046s | 1696720K    | 0.23x   | million_multi |
+
+## Windows 10 Desktop, 64GB RAM, i7 14th Gen 20 cores (8 performance and 12 efficiency)
+
+| Test                                | Current | Native   | Less Memory   | Speedup | Dir Path             |
+| ----------------------------------- | ------- | -------- | ------------- | ------- | -------------------- |
+| 100k union                          | 0.56s   | 0.103s   | 83422K        | 5.44x   | 100k                 |
+| 100k union 1 Thread                 | 0.56s   | 0.167s   | 82587K        | 3.35x   | 100k                 |
+| Recursive Type                      | 2.28s   | 1.649s   | 295234K       | 1.38x   | union                |
+| Recursive Type 1 Thread             | 2.28s   | 1.688s   | 295948K       | 1.35x   | union                |
+| 1 Million Union Type                | 1.69s   | 4.764s   | 498057K       | 0.35x   | million              |
+| 1 Million Union Type 1 Thread       | 1.69s   | 4.838s   | 499310K       | 0.35x   | million              |
+| 4x 1 Million Union Type             | 5.47s   | 5.399s   | 435844K       | 1.01x   | million_multi        |
+| 4x 1 Million Union Type 1 Thread    | 5.47s   | 18.434s  | 1209167K      | 0.3x    | million_multi        |

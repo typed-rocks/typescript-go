@@ -1,4 +1,4 @@
-import { execSync } from "child_process";
+const { execSync } = require("child_process");
 
 const tsgoPath = process.argv[2];
 
@@ -55,22 +55,18 @@ const result = [
   .flat();
 
 const printable = result.map(({ name, current, native, path }) => {
-  const currentTotal = current.totalTime || "";
-  const nativeTotal = native.totalTime || "";
-
   const speedup =
-    round(removeLast(currentTotal) / removeLast(nativeTotal)) + "x";
+    round(removeLast(current.totalTime) / removeLast(native.totalTime)) + "x";
   const memorySaved =
     round(removeLast(current.memoryUsed) - removeLast(native.memoryUsed)) + "K";
-  return `| ${name.padEnd(35)} | ${currentTotal.padEnd(
+  return `| ${name.padEnd(35)} | ${current.totalTime.padEnd(
     7
-  )} | ${nativeTotal.padEnd(8)} | ${memorySaved.padEnd(13)} | ${speedup.padEnd(
-    7
-  )} | ${path.padEnd(20)} |`;
+  )} | ${native.totalTime.padEnd(8)} | ${memorySaved.padEnd(
+    13
+  )} | ${speedup.padEnd(7)} | ${path.padEnd(20)} |`;
 });
 
 function removeLast(str) {
-  if (!str) return 0;
   return +str.substring(0, str.length - 1);
 }
 
@@ -87,5 +83,4 @@ console.log(
     13
   )} | ${"-".repeat(7)} | ${"-".repeat(20)} |`
 );
-
 console.log(printable.join("\n"));

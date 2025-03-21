@@ -76,4 +76,4 @@
 | 1 Million Union Type             | 8.44s   | 21.677s  | 515319K     | 0.39x   | million       |
 | 1 Million Union Type 1 Thread    | 8.44s   | 22.792s  | 516588K     | 0.37x   | million       |
 | 4x 1 Million Union Type          |         | 69.088s  | -2030362K   | 0x      | million_multi |
-| 4x 1 Million Union Type 1 Thread |         | 72.296s  | -1256826K   | 0x      | million_multi | 
+| 4x 1 Million Union Type 1 Thread |         | 72.296s  | -1256826K   | 0x      | million_multi |

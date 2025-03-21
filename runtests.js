@@ -21,7 +21,7 @@ function extractResults(result) {
   let memoryUsed = undefined;
   let totalTime = undefined;
   for (const line of lines) {
-    const trimmed = line.replace(/\s+/g, '');
+    const trimmed = line.replace(/\s+/g, "");
     if (trimmed.startsWith("Memoryused:")) {
       memoryUsed = trimmed.split(":")[1];
     } else if (trimmed.startsWith("Totaltime:")) {
@@ -54,23 +54,34 @@ const result = [
   })
   .flat();
 
-
 const printable = result.map(({ name, current, native, path }) => {
-  const speedup = round(removeLast(current.totalTime) / removeLast(native.totalTime)) + 'x';
-  const memorySaved = round(removeLast(current.memoryUsed) - removeLast(native.memoryUsed)) + 'K';
-  return `| ${name.padEnd(35)} | ${current.totalTime.padEnd(7)} | ${native.totalTime.padEnd(8)} | ${memorySaved.padEnd(13)} | ${speedup.padEnd(7)} | ${path.padEnd(20)} |`;
+  const speedup =
+    round(removeLast(current.totalTime) / removeLast(native.totalTime)) + "x";
+  const memorySaved =
+    round(removeLast(current.memoryUsed) - removeLast(native.memoryUsed)) + "K";
+  return `| ${name.padEnd(35)} | ${current.totalTime.padEnd(
+    7
+  )} | ${native.totalTime.padEnd(8)} | ${memorySaved.padEnd(
+    13
+  )} | ${speedup.padEnd(7)} | ${path.padEnd(20)} |`;
 });
-
-
-
 
 function removeLast(str) {
   return +str.substring(0, str.length - 1);
 }
 
 function round(num) {
-  return (Math.round(num * 100) / 100) + '';
+  return Math.round(num * 100) / 100 + "";
 }
-console.log(`| ${"Test".padEnd(35)} | Current | ${"Native".padEnd(8)} | ${"Less Memory".padEnd(13)} | Speedup | ${'Dir Path'.padEnd(20)} |`);
-console.log(`| ${"-".repeat(35)} | ${"-".repeat(7)} | ${"-".repeat(8)} | ${"-".repeat(13)} | ${"-".repeat(7)} | ${'-'.repeat(20)} |`);
-console.log(printable.join('\n'));
+console.log(
+  `| ${"Test".padEnd(35)} | Current | ${"Native".padEnd(
+    8
+  )} | ${"Less Memory".padEnd(13)} | Speedup | ${"Dir Path".padEnd(20)} |`
+);
+console.log(
+  `| ${"-".repeat(35)} | ${"-".repeat(7)} | ${"-".repeat(8)} | ${"-".repeat(
+    13
+  )} | ${"-".repeat(7)} | ${"-".repeat(20)} |`
+);
+console.log(printable.join("\n"));
+  

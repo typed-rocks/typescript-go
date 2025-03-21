@@ -84,3 +84,4 @@ console.log(
   )} | ${"-".repeat(7)} | ${"-".repeat(20)} |`
 );
 console.log(printable.join("\n"));
+  

@@ -64,3 +64,16 @@
 | 1 Million Union Type 1 Thread       | 1.46s   | 4.586s   | 504982K       | 0.32x   | million              |
 | 4x 1 Million Union Type             | 4.65s   | 5.352s   | 438456K       | 0.87x   | million_multi        |
 | 4x 1 Million Union Type 1 Thread    | 4.65s   | 17.846s  | 1211475K      | 0.26x   | million_multi        |
+
+## HP 15s i3 11th Gen (8GB RAM, 2 Cores, Windows 11)
+
+| Test                             | Current | Native   | Less Memory | Speedup | Dir Path      |
+| -------------------------------- | ------- | -------- | ----------- | ------- | ------------- |
+| 100k union                       | 3.29s   | 0.908s   | 93795K      | 3.62x   | 100k          |
+| 100k union 1 Thread              | 3.29s   | 1.929s   | 92936K      | 1.71x   | 100k          |
+| Recursive Type                   | 12.47s  | 12.183s  | 208556K     | 1.02x   | union         |
+| Recursive Type 1 Thread          | 12.47s  | 9.917s   | 208699K     | 1.26x   | union         |
+| 1 Million Union Type             | 8.44s   | 21.677s  | 515319K     | 0.39x   | million       |
+| 1 Million Union Type 1 Thread    | 8.44s   | 22.792s  | 516588K     | 0.37x   | million       |
+| 4x 1 Million Union Type          |         | 69.088s  | -2030362K   | 0x      | million_multi |
+| 4x 1 Million Union Type 1 Thread |         | 72.296s  | -1256826K   | 0x      | million_multi |
